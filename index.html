@@ -2,6 +2,8 @@
   <head>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
     <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <style>
       body{
           font-family:Roboto;
@@ -63,14 +65,21 @@ return
       var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
       saveAs(blob, name+".txt");
       }
-       
-    </script>
-	  <script src="https://unpkg.com/hotkeys-js/dist/hotkeys.min.js"></script>
-<script type="text/javascript">
-hotkeys('ctrl+s', function (event, handler){
-	event.preventDefault();
-save()
+      $("main").bind('keydown', function(event) {
+    if (event.ctrlKey || event.metaKey) {
+        switch (String.fromCharCode(event.which).toLowerCase()) {
+        case 's':
+            event.preventDefault();
+            save();
+            break;
+        case 'g':
+            event.preventDefault();
+            save();
+            break;
+        }
+    }
 });
-</script>
+    </script>
+	
   </body>
 </html>
