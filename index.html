@@ -10,14 +10,22 @@
       }
       header{
         color:white;
-      height:3%;
+	     height: calc(3% - 8px);
+    width: calc(100% - 8px);
       background-color: #333;
       box-shadow: 0px 2px 20px 0px #333333ba;
       padding:4px;
       }
       main{
-      height:97%;
-      padding:10px;
+      padding: 10px;
+    width: 100vw;
+    overflow-x: hidden;
+    max-height: calc(97% - 20px);
+    max-width: calc(100% - 20px);
+    overflow-y: scroll;
+    height: calc(97% - 20px);
+    display: inline-block;
+    white-space: pre-wrap;
       }
       button{
             position: relative;
@@ -47,7 +55,7 @@
   </main>
       <script>      
        var save = function(){
-        var text = document.querySelector("main").textContent
+        var text = document.querySelector("main").innerHTML
 		var name = prompt("Please enter a name for the file", "notepad");
 if(name == null){
 return
