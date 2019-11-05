@@ -46,10 +46,14 @@
   <main contenteditable spellcheck>
   </main>
       <script>      
-      var save = function(){
+       var save = function(){
         var text = document.querySelector("main").textContent
+		var name = prompt("Please enter a name for the file", "notepad");
+if(name == null){
+return
+}
       var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
-      FileSaver.saveAs(blob, "notepad.txt");
+      saveAs(blob, name+".txt");
       }
     </script>
   </body>
