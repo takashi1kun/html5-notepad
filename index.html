@@ -3,8 +3,6 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
     <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js" integrity="sha256-cs4thShDfjkqFGk5s2Lxj35sgSRr4MRcyccmi0WKqCM=" crossorigin="anonymous"></script>
-
     <style>
       body{
           font-family:Roboto;
@@ -79,7 +77,21 @@ return
         }
     }
 });
-	      $("main").dropzone();
+	    $('main').on('drop', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+  var reader = new FileReader();
+        reader.onload = function(){
+          var text = reader.result;
+          var node =  $('main')[0];
+          node.innerText = text;
+          console.log(reader.result.substring(0, 200));
+        };
+      
+        var file = e.originalEvent.dataTransfer.files;
+ reader.readAsText(file[0])
+    });
+
     </script>
 	
   </body>
