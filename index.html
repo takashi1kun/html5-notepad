@@ -1,6 +1,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
     <style>
       body{
           font-family:Roboto;
@@ -19,10 +20,17 @@
       padding:10px;
       }
     </style>
+    <script>
+      var text = document.querySelector("main").textContent
+      var save = function(){
+      var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
+      FileSaver.saveAs(blob, "notepad.txt");
+      }
+    </script>
   </head>
   <body>
   <header>
-    HTML5 Notepad
+    HTML5 Notepad<button onclick="save()">Save</button>
   </header>
   <main contenteditable spellcheck>
   </main>
