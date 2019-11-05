@@ -53,9 +53,12 @@
     HTML5 Notepad <button onclick="save()">Save Notepad</button>
   </header>
   <main contenteditable spellcheck></main>
-      <script>      
+      <script>  
+function br2nl(str) {
+    return str.replace(/<br\s*\/?>/mg,"\n");
+}    
        var save = function(){
-        var text = document.querySelector("main").innerHTML
+        var text = br2nl(document.querySelector("main").innerHTML)
 		var name = prompt("Please enter a name for the file", "notepad");
 if(name == null){
 return
