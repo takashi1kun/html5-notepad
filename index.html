@@ -58,7 +58,7 @@ function br2nl(str) {
     return str.replace(/<br\s*\/?>/mg,"\n");
 }    
        var save = function(){
-        var text = br2nl(document.querySelector("main").innerHTML)
+        var text = unescape(br2nl(document.querySelector("main").innerHTML))
 		var name = prompt("Please enter a name for the file", "notepad");
 if(name == null){
 return
