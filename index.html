@@ -54,11 +54,16 @@
   </header>
   <main contenteditable spellcheck></main>
       <script>  
+	      function htmlDecode(input)
+{
+  var doc = new DOMParser().parseFromString(input, "text/html");
+  return doc.documentElement.textContent;
+}
 function br2nl(str) {
     return str.replace(/<br\s*\/?>/mg,"\n");
 }    
        var save = function(){
-        var text = unescape(br2nl(document.querySelector("main").innerHTML))
+        var text = htmlDecode(br2nl(document.querySelector("main").innerHTML))
 		var name = prompt("Please enter a name for the file", "notepad");
 if(name == null){
 return
