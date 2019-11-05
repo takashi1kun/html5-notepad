@@ -63,6 +63,13 @@ return
       var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
       saveAs(blob, name+".txt");
       }
+       
     </script>
+	  <script src="https://unpkg.com/hotkeys-js/dist/hotkeys.min.js"></script>
+<script type="text/javascript">
+hotkeys('ctrl+g,ctrl+s', function (event, handler){
+save()
+});
+</script>
   </body>
 </html>
