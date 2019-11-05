@@ -11,7 +11,7 @@
       header{
         color:white;
       height:3%;
-      background-color: #2fa02f;
+      background-color: #333;
       box-shadow: 0px 2px 20px 0px #333333ba;
       padding:4px;
       }
@@ -19,20 +19,38 @@
       height:97%;
       padding:10px;
       }
+      button{
+            position: relative;
+    left: 20px;
+          background-color: #2fa02f;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+    font-weight: 900;
+    box-shadow: inset 0 0 6px 4px #3333330d, 0 0 4px 2px #3333335c;
+      }
+      
     </style>
-    <script>
-      var text = document.querySelector("main").textContent
+  
+  </head>
+  <body>
+  <header>
+    HTML5 Notepad <button onclick="save()">Save Notepad</button>
+  </header>
+  <main contenteditable spellcheck>
+  </main>
+      <script>      
       var save = function(){
+        var text = document.querySelector("main").textContent
       var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
       FileSaver.saveAs(blob, "notepad.txt");
       }
     </script>
-  </head>
-  <body>
-  <header>
-    HTML5 Notepad<button onclick="save()">Save</button>
-  </header>
-  <main contenteditable spellcheck>
-  </main>
   </body>
 </html>
