@@ -1,1 +1,80 @@
 
+
+<html>
+  <head>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+    <style>
+      body{
+          font-family:Roboto;
+          margin: 0px;
+          height: 100vh;
+      }
+      header{
+        color:white;
+	     height: calc(4% - 8px);
+    width: calc(100% - 8px);
+      background-color: #333;
+      box-shadow: 0px 2px 20px 0px #333333ba;
+      padding:4px;
+      }
+      main{
+      padding: 10px;
+    width: 100vw;
+    overflow-x: hidden;
+    max-height: calc(96% - 20px);
+    max-width: calc(100% - 20px);
+    overflow-y: scroll;
+    height: calc(96% - 20px);
+    display: inline-block;
+    white-space: pre-wrap;
+      }
+      button{
+            position: relative;
+    left: 20px;
+          background-color: #2fa02f;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+    font-weight: 900;
+    box-shadow: inset 0 0 6px 4px #3333330d, 0 0 4px 2px #3333335c;
+	      
+      }
+      
+    </style>
+  
+  </head>
+  <body>
+  <header>
+    HTML5 Notepad <button onclick="save()">Save Notepad</button>
+  </header>
+  <main contenteditable spellcheck>
+  </main>
+      <script>      
+       var save = function(){
+        var text = document.querySelector("main").innerHTML
+		var name = prompt("Please enter a name for the file", "notepad");
+if(name == null){
+return
+}
+      var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
+      saveAs(blob, name+".txt");
+      }
+       
+    </script>
+	  <script src="https://unpkg.com/hotkeys-js/dist/hotkeys.min.js"></script>
+<script type="text/javascript">
+hotkeys('ctrl+s', function (event, handler){
+	event.preventDefault();
+save()
+});
+</script>
+  </body>
+</html>
+ 
