@@ -1,3 +1,3 @@
-## html5 notepad
+## HTML5 Notepad
 
-Small notepad in html5
+Small Notepad In HTML5
